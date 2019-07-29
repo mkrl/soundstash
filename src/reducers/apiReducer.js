@@ -1,4 +1,5 @@
 const initialState = {
+  searchText: "",
   fetching: false,
   fetched: false,
   text: null,
@@ -13,6 +14,7 @@ export default function reducer(state = initialState, action) {
     case "FETCH_API":
       return {
         ...state,
+        searchText: payload,
         fetching: true,
         error: null
       }
