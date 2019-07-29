@@ -14,9 +14,15 @@ export default function reducer(state = initialState, action) {
     case "FETCH_API":
       return {
         ...state,
-        searchText: payload,
         fetching: true,
         error: null
+      }
+    case "FETCH_CLEAR":
+      return {
+        ...state,
+        fetching: false,
+        releases: [],
+        fetched: false
       }
     case "FETCH_API_ERROR":
       return {

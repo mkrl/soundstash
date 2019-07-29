@@ -33,7 +33,9 @@ class App extends React.Component {
           this.props.fetching ? 
           <Loader/>
           :
-          <List records={this.props.records}/>
+          <List records={this.props.releases}
+                count={this.props.count}
+                offset={this.props.offset}/>
         }
       </Layout>
     )

@@ -2,9 +2,9 @@ import React from 'react'
 import styled from 'styled-components'
 import Search from './Search'
 import { setText, setSearchVisibility } from '../../actions/appActions'
-import { queryText } from '../../actions/apiActions'
+import { queryText, clearSearch } from '../../actions/apiActions'
 import { connect } from 'react-redux'
-import { throttle } from 'underscore'
+import { debounce } from 'underscore'
 
 const Side = styled.aside`
   display: flex;
@@ -25,11 +25,21 @@ class Sidebar extends React.Component {
   constructor() {
     super()
     this.handleSearch = this.handleSearch.bind(this)
+    // Making user input more robust and reducing the amount of requests
+    this.queueSearch = debounce(this.queueSearch.bind(this), 900);
   }
 
   handleSearch(text) {
     this.props.setText(text)
-    throttle(queryText(text), 100, {leading: false})
+    this.queueSearch(text)
+  }
+
+  queueSearch(text) {
+    if (text.length === 0) {
+      this.props.clearSearch()
+    } else {
+      this.props.queryText(text)
+    }
   }
 
   render() {
@@ -64,6 +74,7 @@ const mapDispatchToProps = dispatch => {
     setText: text => dispatch(setText(text)),
     setSearchVisibility: value => dispatch(setSearchVisibility(value)),
     queryText: text => dispatch(queryText(text)),
+    clearSearch: () => dispatch(clearSearch()),
     dispatch
   }
 }
