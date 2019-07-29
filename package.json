@@ -1,0 +1,23 @@
+{
+  "name": "soundstash",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/mkrl/soundstash.git",
+  "author": "Mikhail Korolev <self@mkrl.xyz>",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "parcel-bundler": "^1.12.3"
+  },
+  "dependencies": {
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "redux": "^4.0.4",
+    "styled-components": ">=4.3.2",
+    "styled-reset": "^3.0.0"
+  },
+  "scripts": {
+    "start": "parcel src/index.html"
+  }
+}
