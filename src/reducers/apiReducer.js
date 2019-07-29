@@ -15,13 +15,14 @@ export default function reducer(state = initialState, action) {
       return {
         ...state,
         fetching: true,
-        error: null
+        error: null,
       }
     case "FETCH_CLEAR":
       return {
         ...state,
         fetching: false,
         releases: [],
+        error: null,
         fetched: false
       }
     case "FETCH_API_ERROR":
@@ -38,12 +39,6 @@ export default function reducer(state = initialState, action) {
         releases: action.payload.releases,
         count: action.payload.count,
         offset: action.payload.offset,
-      }
-    case "FETCH_API_OFFSET":
-      return {
-        ...state,
-        fetching: false,
-        offset: action.payload,
       }
     default:
       return state
