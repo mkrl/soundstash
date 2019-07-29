@@ -6,6 +6,9 @@
   "author": "Mikhail Korolev <self@mkrl.xyz>",
   "license": "MIT",
   "devDependencies": {
+    "@babel/core": "^7.0.0-0",
+    "@babel/preset-react": "^7.0.0",
+    "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
     "parcel-bundler": "^1.12.3"
@@ -21,7 +24,8 @@
     "redux-logger": "^3.0.6",
     "redux-promise-middleware": "^6.1.1",
     "styled-components": ">=4.3.2",
-    "styled-reset": "^3.0.0"
+    "styled-reset": "^3.0.0",
+    "underscore": "^1.9.1"
   },
   "scripts": {
     "start": "parcel src/index.html"

@@ -2,7 +2,7 @@ import React from 'react'
 import Layout from './components/Layout'
 import List from './components/layout/List'
 import Loader from './components/Loader'
-import { connect } from 'react-redux';
+import { connect } from 'react-redux'
 
 const mapStateToProps = state => {
   return {
