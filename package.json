@@ -11,9 +11,15 @@
     "parcel-bundler": "^1.12.3"
   },
   "dependencies": {
+    "bloomer": "^0.6.5",
+    "bulma": "^0.7.5",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
+    "react-feather": "^2.0.3",
+    "react-redux": "^7.1.0",
     "redux": "^4.0.4",
+    "redux-logger": "^3.0.6",
+    "redux-promise-middleware": "^6.1.1",
     "styled-components": ">=4.3.2",
     "styled-reset": "^3.0.0"
   },
