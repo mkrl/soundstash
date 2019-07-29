@@ -4,7 +4,7 @@ export function queryText(text, passedOffset = 0) {
   return function (dispatch) {
     dispatch({ type: "FETCH_API" })
     axios.get(`http://musicbrainz.org/ws/2/release?query=${text}&offset=${passedOffset}&limit=12&fmt=json`)
-      .then((resp) => {
+      .then(resp => {
         dispatch({
           type: "FETCH_API_SUCCESS",
           payload: {
@@ -14,6 +14,7 @@ export function queryText(text, passedOffset = 0) {
           }
         })
       })
+      .catch(err => dispatch({ type: "FETCH_API_ERROR", payload: err.message}))
   }
 }
 
