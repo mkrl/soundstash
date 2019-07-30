@@ -3,7 +3,7 @@ import axios from 'axios'
 export function queryText(text, passedOffset = 0) {
   return function (dispatch) {
     dispatch({ type: "FETCH_API" })
-    axios.get(`http://musicbrainz.org/ws/2/release?query=${text}&offset=${passedOffset}&limit=12&fmt=json`)
+    axios.get(`http://musicbrainz.org/ws/2/release?query=${text}&offset=${passedOffset}&limit=20&fmt=json`)
       .then(resp => {
         dispatch({
           type: "FETCH_API_SUCCESS",

@@ -3,6 +3,7 @@ import Layout from './components/Layout'
 import List from './components/List'
 import Loader from './components/Loader'
 import Error from './components/layout/Error'
+import Hero from './components/layout/Hero'
 import { updateBookmarks } from './actions/bookmarkActions'
 import { connect } from 'react-redux'
 
@@ -25,12 +26,14 @@ class App extends React.Component {
           {this.props.error}
         </Error>
         {
-          this.props.fetching ? 
-          <Loader/>
-          :
-          <List records={this.props.releases}
-                count={this.props.count}
-                offset={this.props.offset}/>
+          this.props.fetching ?
+            <Hero>
+              <Loader />
+            </Hero>
+            :
+            <List records={this.props.releases}
+              count={this.props.count}
+              offset={this.props.offset} />
         }
       </Layout>
     )

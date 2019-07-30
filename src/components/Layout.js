@@ -10,31 +10,48 @@ import Sidebar from './layout/Sidebar'
 
 const GlobalStyle = createGlobalStyle`
   #app {
+    font-size: 16px;
     overflow: hidden;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     background: #ECEFF2;
     flex-direction: row;
     justify-content: center;
     height: 100vh;
+    font-family: 'Montserrat', sans-serif;
   }
 `
 
 const Wrapper = styled.div`
+  margin-top: 3rem;
+  display: flex;
+  height: 75vh;
+  padding: 3rem;
+  @media (max-width: 992px) {
+    flex-direction: column;
+    margin-top: 0;
+  }
+`
+
+const MainArea = styled.div`
   min-width: 600px;
+  @media (max-width: 992px) {
+    width: 100%;
+    overflow-y: auto;
+  }
 `
 
 const Layout = props => (
-  <>
+  <Wrapper>
     <Reset/>
     <GlobalStyle/>
 
     <Sidebar />
-    <Wrapper >
+    <MainArea >
       <Header>Sound Stash</Header>
       <Main>{props.children}</Main>
-    </Wrapper>
-  </>
+    </MainArea>
+  </Wrapper>
 )
 
 export default Layout

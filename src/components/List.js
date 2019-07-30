@@ -1,16 +1,18 @@
 import React from 'react'
 import styled from 'styled-components'
 import ListItem from './ListItem'
-import ReactPaginate from 'react-paginate'
+import Hero from './layout/Hero'
+import Paginator from './layout/Paginator'
 import { queryText } from '../actions/apiActions'
 import { updateBookmarks } from '../actions/bookmarkActions'
 import { connect } from 'react-redux'
 
 const ListArea = styled.ul`
+  overflow-y: auto;
   margin: 0;
 `
 // This currently should also be changed in api "queryText" action
-const PER_PAGE = 12
+const PER_PAGE = 20
 
 class List extends React.Component {
 
@@ -71,7 +73,7 @@ class List extends React.Component {
                 {items}
               </ListArea>
               {(totalPages > 1) && (this.props.isSearchActive) ?
-                <ReactPaginate pageCount={totalPages}
+                <Paginator pageCount={totalPages}
                   initialPage={currentPage}
                   pageRangeDisplayed={3}
                   onPageChange={this.gotoPage}
@@ -83,7 +85,7 @@ class List extends React.Component {
             </>
           )
         } else {
-          return <p>No releases found</p>
+          return <Hero><p>No releases found. Give search a better try?</p></Hero>
         }
       } else {
         return null

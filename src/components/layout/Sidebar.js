@@ -9,15 +9,29 @@ import { debounce } from 'underscore'
 const Side = styled.aside`
   display: flex;
   flex-direction: column;
+  justify-content: flex-start;
   color: black;
   padding: 1rem;
-  min-height: 30vh;
-  border-radius: 10px;
+  margin-top: 10rem;
+  @media (max-width: 992px) {
+    margin-top: 0;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0;
+    align-items: baseline;
+  }
 `
 
 const Link = styled.a`
-  background-color: ${props => props.active ? "red" : ""};
+  color: ${props => props.active ? "" : "#6e6e6e"};
+  font-weight: ${props => props.active ? "bold" : "normal"};
   cursor: pointer;
+  font-size: 18px;
+  margin-bottom: 0.5rem;
+  text-align: right;
+  @media (max-width: 992px) {
+    padding: 0 0.5rem;
+  }
 `
 
 class Sidebar extends React.Component {
