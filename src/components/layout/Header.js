@@ -1,10 +1,9 @@
-import styled from "styled-components"
+import styled from 'styled-components'
 
-const Header = styled.h1`
+const Header = styled.header`
+  margin-bottom: 1.5rem;
   font-size: 2rem;
   color: #5a5a5a;
-  margin-bottom: 1rem;
-  margin-top: 3rem;
   @media (max-width: 992px) {
     display: none;
   }

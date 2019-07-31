@@ -1,9 +1,7 @@
 import React from 'react'
-import { createGlobalStyle } from 'styled-components'
-import styled from "styled-components"
-import { connect } from 'react-redux'
-import { Reset } from 'styled-reset'
+import styled, { createGlobalStyle } from 'styled-components'
 
+import { Reset } from 'styled-reset'
 import Header from './layout/Header'
 import Main from './layout/Main'
 import Sidebar from './layout/Sidebar'
@@ -13,10 +11,10 @@ const GlobalStyle = createGlobalStyle`
     font-size: 16px;
     overflow: hidden;
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     background: #ECEFF2;
-    flex-direction: row;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: flex-start;
     height: 100vh;
     font-family: 'Montserrat', sans-serif;
   }
@@ -30,25 +28,32 @@ const Wrapper = styled.div`
   @media (max-width: 992px) {
     flex-direction: column;
     margin-top: 0;
+    width: 100%;
+    padding: 0.5rem;
+    height: 95%;
   }
 `
 
 const MainArea = styled.div`
   min-width: 600px;
+  height: 100%;
   @media (max-width: 992px) {
-    width: 100%;
+    padding: 0.5rem;
     overflow-y: auto;
+    min-width: unset;
   }
 `
 
 const Layout = props => (
   <Wrapper>
-    <Reset/>
-    <GlobalStyle/>
+    <Reset />
+    <GlobalStyle />
 
     <Sidebar />
     <MainArea >
-      <Header>Sound Stash</Header>
+      <Header>
+          Sound Stash
+      </Header>
       <Main>{props.children}</Main>
     </MainArea>
   </Wrapper>

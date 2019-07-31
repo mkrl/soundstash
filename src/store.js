@@ -8,4 +8,4 @@ import app from './reducers/appReducer'
 
 const middleware = applyMiddleware(promise, thunk)
 
-export default createStore(combineReducers({api, bookmarks, app}), middleware)
+export default createStore(combineReducers({ api, bookmarks, app }), middleware)

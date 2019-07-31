@@ -1,6 +1,18 @@
 import React from 'react'
-import styled from "styled-components"
+import styled, { keyframes } from 'styled-components'
 import StarIcon from 'react-feather/dist/icons/star'
+
+const pulse = keyframes`
+  from {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(0.8);
+  }
+  to {
+    transform: scale(1); 
+  }
+`
 
 const Item = styled.li`
   padding: 1rem;
@@ -16,11 +28,13 @@ const Item = styled.li`
     font-size: 16px;
     color: #949494;
   }
-  & svg.fav {
+  & svg {
     cursor: pointer;
+    flex-shrink: 0;
   }
   & svg.fav {
     fill: black;
+    animation: ${pulse} 0.3s ease-in-out;
   }
 `
 
@@ -28,7 +42,7 @@ const ListItem = props => {
   const record = {
     id: props.id,
     title: props.title,
-    authors: props.authors,
+    authors: props.authors
   }
   return (
     <Item>
@@ -36,7 +50,7 @@ const ListItem = props => {
         <h3>{props.title}</h3>
         <h5>{props.authors}</h5>
       </div>
-      <StarIcon className={props.fav ? "fav" : ""} onClick={() => props.toggle(record, props.fav)} />
+      <StarIcon className={props.fav ? 'fav' : ''} onClick={() => props.toggle(record, props.fav)} />
     </Item>
   )
 }

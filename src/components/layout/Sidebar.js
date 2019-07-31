@@ -17,14 +17,15 @@ const Side = styled.aside`
     margin-top: 0;
     flex-direction: row;
     justify-content: space-between;
-    padding: 0;
+    padding: 0 0.5rem;
     align-items: baseline;
+    flex-wrap: wrap;
   }
 `
 
 const Link = styled.a`
-  color: ${props => props.active ? "" : "#6e6e6e"};
-  font-weight: ${props => props.active ? "bold" : "normal"};
+  color: ${props => props.active ? '' : '#6e6e6e'};
+  font-weight: ${props => props.active ? 'bold' : 'normal'};
   cursor: pointer;
   font-size: 18px;
   margin-bottom: 0.5rem;
@@ -35,44 +36,44 @@ const Link = styled.a`
 `
 
 class Sidebar extends React.Component {
-
-  constructor() {
+  constructor () {
     super()
     this.handleSearch = this.handleSearch.bind(this)
     // Making user input more robust and reducing the amount of requests
-    this.queueSearch = debounce(this.queueSearch.bind(this), 900);
+    this.queueSearch = debounce(this.queueSearch.bind(this), 900)
   }
 
-  handleSearch(text) {
+  handleSearch (text) {
     this.props.setText(text)
     this.queueSearch(text)
   }
 
-  queueSearch(text) {
-    if (text.length === 0) {
+  queueSearch (text) {
+    // Trimming the string in order to avoid "spaces only" queries that cause API requests to fail
+    if (text.trim().length === 0) {
       this.props.clearSearch()
     } else {
       this.props.queryText(text)
     }
   }
 
-  render() {
+  render () {
     return (
       <Side>
-        <Search type="text" 
-                onChange={(event) => this.handleSearch(event.target.value)} 
-                value={this.props.text}
-                placeholder="Find an album"/>
-        <Link active={this.props.search} 
-              onClick={() => this.props.setSearchVisibility(true)}>
+        <Search type='text'
+          onChange={(event) => this.handleSearch(event.target.value)}
+          value={this.props.text}
+          placeholder='Find an album' />
+        <Link active={this.props.search}
+          onClick={() => this.props.setSearchVisibility(true)}>
               Search
         </Link>
-        <Link active={!this.props.search} 
-              onClick={() => this.props.setSearchVisibility(false)}>
+        <Link active={!this.props.search}
+          onClick={() => this.props.setSearchVisibility(false)}>
               Bookmarks
         </Link>
       </Side>
-      
+
     )
   }
 }
@@ -80,7 +81,7 @@ class Sidebar extends React.Component {
 const mapStateToProps = state => {
   return {
     text: state.app.searchText,
-    search: state.app.isSearchActive,
+    search: state.app.isSearchActive
   }
 }
 const mapDispatchToProps = dispatch => {

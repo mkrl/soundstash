@@ -1,13 +1,13 @@
-export function setText(text) {
+export function setText (text) {
   return {
-    type: "APP_SET_TEXT",
-    payload: text,
+    type: 'APP_SET_TEXT',
+    payload: text
   }
 }
 
-export function setSearchVisibility(value) {
+export function setSearchVisibility (value) {
   return {
-    type: "APP_SET_SEARCH_VISIBILITY",
-    payload: value,
+    type: 'APP_SET_SEARCH_VISIBILITY',
+    payload: value
   }
 }

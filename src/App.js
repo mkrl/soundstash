@@ -8,30 +8,25 @@ import { updateBookmarks } from './actions/bookmarkActions'
 import { connect } from 'react-redux'
 
 class App extends React.Component {
-  constructor() {
-    super()
-  }
-
-  componentDidMount() {
-    if (localStorage.getItem("bookmarks") !== null) {
-      const storedBookmarks = JSON.parse(localStorage.getItem("bookmarks"))
+  componentDidMount () {
+    if (window.localStorage.getItem('bookmarks') !== null) {
+      const storedBookmarks = JSON.parse(window.localStorage.getItem('bookmarks'))
       this.props.updateBookmarks(storedBookmarks)
     }
   }
 
-  render() {
+  render () {
     return (
       <Layout>
-        <Error>
-          {this.props.error}
-        </Error>
+        {this.props.error ?
+        <Error>{this.props.error}</Error>
+        : null }
         {
-          this.props.fetching ?
-            <Hero>
+          this.props.fetching
+            ? <Hero>
               <Loader />
             </Hero>
-            :
-            <List records={this.props.releases}
+            : <List records={this.props.releases}
               count={this.props.count}
               offset={this.props.offset} />
         }
@@ -48,7 +43,7 @@ const mapStateToProps = state => {
     offset: state.api.offset,
     error: state.api.error,
     fetching: state.api.fetching,
-    fetched: state.api.fetched,
+    fetched: state.api.fetched
   }
 }
 

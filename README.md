@@ -2,7 +2,8 @@
 
 A very basic React application.
 Fetch and bookmark musical releases from [musicbrainz.org](http://musicbrainz.org) database.
-Backed up by styled-components and Redux.
+Backed up by styled-components and Redux, built by Parcel.
+Code style maintained by [JavaScript Standard Style](https://standardjs.com/).
 
 ## Setting up dev server
 
@@ -21,6 +22,14 @@ yarn build
 
 (tba)
 
+
 ```bash
 yarn test
+```
+
+To automatically attempt to fix the code style, run
+
+
+```bash
+yarn fix
 ```

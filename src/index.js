@@ -7,5 +7,5 @@ import store from './store'
 const root = document.querySelector('#app')
 ReactDOM.render(
   <Provider store={store}>
-    <App/>
+    <App />
   </Provider>, root)

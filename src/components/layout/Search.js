@@ -12,7 +12,8 @@ const Search = styled.input`
     outline: none;
   }    
   @media (max-width: 992px) {
-    flex-grow: 0.5;
+    width: 100%;
+    font-size: 18px;
   }
 `
 

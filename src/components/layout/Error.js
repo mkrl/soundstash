@@ -1,9 +1,13 @@
-import styled from "styled-components"
+import styled from 'styled-components'
 
 const Error = styled.div`
-  font-size: 2rem;
-  background-color: red;
-  color: white;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  padding: 1rem;
+  font-size: 1rem;
+  background-color: #eceff2;
+  color: #8c0000;
 `
 
 export default Error

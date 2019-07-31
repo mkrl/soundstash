@@ -1,6 +1,7 @@
-import styled from "styled-components"
+import styled from 'styled-components'
 
 const Main = styled.main`
+position: relative;
   color: black;
   background-color: white;
   min-height: 30vh;
@@ -9,7 +10,8 @@ const Main = styled.main`
   justify-content: space-between;
   height: 100%;
   overflow-y: auto;
-  box-shadow: 1px 2px 9px 2px #0000002e;
+  overflow-x: hidden;
+  box-shadow: 0px 4px 9px 0px #00000021;
 `
 
 export default Main
