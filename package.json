@@ -29,7 +29,7 @@
     "redux-thunk": "^2.3.0",
     "styled-components": ">=4.3.2",
     "styled-reset": "^3.0.0",
-    "underscore": "^1.9.1"
+    "underscore": "^1.12.1"
   },
   "scripts": {
     "start": "parcel src/index.html",
